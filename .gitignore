@@ -32,3 +32,17 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# emacs
+.log
+*~
+\#*\#
+.\#*
+*.~undo-tree
+
+# vim
+*.swp
+*.swo
+
+# macos
+.DS_Store
