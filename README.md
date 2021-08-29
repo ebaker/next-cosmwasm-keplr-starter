@@ -1,8 +1,21 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
 
-First, run the development server:
+First, bootstrap your new project with this example using [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app):
+
+```bash
+npx create-next-app -e https://github.com/ebaker/next-cosmwasm-keplr-starter my-cosmwasm-dapp
+# or
+yarn create next-app -e https://github.com/ebaker/next-cosmwasm-keplr-starter my-cosmwasm-dapp
+```
+
+Next, setup your `.env` file by copying the example:
+
+```bash
+cd my-cosmwasm-dapp
+cp .env.example .env.local
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
@@ -20,10 +33,13 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+To learn more about Next.js, CosmosJS, and Keplr - take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [CosmosJS Repository](https://github.com/cosmostation/cosmosjs) - Cosmos JavaScript library developed by [Cosmostation](https://www.cosmostation.io/).
+- [@cosmjs/cosmwasm-stargate Documentation](https://cosmos.github.io/cosmjs/latest/cosmwasm-stargate/modules.html) - CosmosJS CosmWasm module documentation.
+- [Keplr Wallet Documentation](https://docs.keplr.app/api/cosmjs.html) - using Keplr wallet with CosmosJS.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
