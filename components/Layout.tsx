@@ -12,19 +12,22 @@ export default function Layout({ children }: { children: ReactNode }) {
       </Head>
 
       <Nav />
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
+      <main className="flex flex-col items-center justify-center w-full flex-1 px-2 md:px-20 text-center">
         {children}
       </main>
       <footer className="flex items-center justify-center w-full h-24 border-t">
         Powered by{' '}
         <a
-          className="pl-1 text-blue-600"
+          className="pl-1 link link-primary link-hover"
           href="https://github.com/cosmostation/cosmosjs"
         >
           CosmosJS
         </a>
         <span className="pl-1"> and</span>
-        <a className="pl-1 text-blue-600" href="https://keplr.app/">
+        <a
+          className="pl-1 link link-primary link-hover"
+          href="https://keplr.app/"
+        >
           Keplr
         </a>
       </footer>

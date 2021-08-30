@@ -3,7 +3,7 @@
 function Loader() {
   return (
     <div
-      className="bg-gray-800 p-5 rounded-full flex space-x-3"
+      className="bg-secondary p-5 rounded-full flex space-x-3"
       style={{ animationDuration: '0.5s' }}
     >
       <div

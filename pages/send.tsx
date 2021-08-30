@@ -20,11 +20,15 @@ const Send: NextPage = () => {
   const [loading, setLoading] = useState(false)
   const [recipientAddress, setRecipientAddress] = useState('')
   const [sendAmount, setSendAmount] = useState('')
+  const [success, setSuccess] = useState('')
+  const [error, setError] = useState('')
 
   useEffect(() => {
     if (!signingClient || walletAddress.length === 0) {
       return
     }
+    setError('')
+    setSuccess('')
 
     signingClient
       .getBalance(walletAddress, PUBLIC_STAKING_DENOM)
@@ -35,12 +39,15 @@ const Send: NextPage = () => {
         )
       })
       .catch((error) => {
-        alert(`Error! ${error.message}`)
+        setError(`Error! ${error.message}`)
+        console.log('Error signingClient.getBalance(): ', error)
       })
   }, [signingClient, walletAddress, loadedAt])
 
   const handleSend = (event: MouseEvent<HTMLElement>) => {
     event.preventDefault()
+    setError('')
+    setSuccess('')
     setLoading(true)
     const amount: Coin[] = [
       {
@@ -65,11 +72,12 @@ const Send: NextPage = () => {
         setLoadedAt(new Date())
         setLoading(false)
         setSendAmount('')
-        alert(message)
+        setSuccess(message)
       })
       .catch((error) => {
         setLoading(false)
-        alert(`Error! ${error.message}`)
+        setError(`Error! ${error.message}`)
+        console.log('Error signingClient.sendTokens(): ', error)
       })
   }
   return (
@@ -83,33 +91,75 @@ const Send: NextPage = () => {
         <input
           type="text"
           id="recipient-address"
-          className="form-input px-4 py-3 rounded-full flex-grow font-mono text-center text-lg"
+          className="input input-bordered focus:input-primary input-lg rounded-full flex-grow font-mono text-center text-lg"
           placeholder={`${PUBLIC_CHAIN_NAME} recipient wallet address...`}
           onChange={(event) => setRecipientAddress(event.target.value)}
           value={recipientAddress}
         />
       </div>
-      <div className="flex mt-4 text-2xl w-full max-w-xl justify-between">
-        <div className="flex rounded-full shadow-sm mr-2">
+      <div className="flex flex-col md:flex-row mt-4 text-2xl w-full max-w-xl justify-between">
+        <div className="relative rounded-full shadow-sm md:mr-2">
           <input
             type="number"
             id="send-amount"
-            className="focus:border-indigo-500 py-3 flex-1 block w-full rounded-none rounded-l-full text-center font-mono text-lg "
+            className="input input-bordered focus:input-primary input-lg w-full pr-24 rounded-full text-center font-mono text-lg "
             placeholder="Amount..."
             step="0.1"
             onChange={(event) => setSendAmount(event.target.value)}
             value={sendAmount}
           />
-          <span className="inline-flex items-center px-4 py-3 rounded-r-full border border-r-0 border-black bg-gray-50 text-gray-500 text-sm">
+          <span className="absolute top-0 right-0 bottom-0 px-4 py-5 rounded-r-full border border-r-0 border-black bg-secondary text-white text-sm">
             {convertFromMicroDenom(PUBLIC_STAKING_DENOM)}
           </span>
         </div>
         <button
-          className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded-full flex-grow"
+          className="mt-4 md:mt-0 btn btn-primary btn-lg font-semibold hover:text-white text-2xl rounded-full flex-grow"
           onClick={handleSend}
         >
           SEND
         </button>
+      </div>
+      <div className="mt-4 flex flex-col w-full max-w-xl">
+        {success.length > 0 && (
+          <div className="alert alert-success">
+            <div className="flex-1 items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                className="flex-shrink-0 w-6 h-6 mx-2 stroke-current flex-shrink-0"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                ></path>
+              </svg>
+              <label className="flex-grow break-all">{success}</label>
+            </div>
+          </div>
+        )}
+        {error.length > 0 && (
+          <div className="alert alert-error">
+            <div className="flex-1 items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                className="w-6 h-6 mx-2 stroke-current flex-shrink-0"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"
+                ></path>
+              </svg>
+              <label className="flex-grow break-all">{error}</label>
+            </div>
+          </div>
+        )}
       </div>
     </WalletLoader>
   )

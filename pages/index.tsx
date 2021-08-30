@@ -12,13 +12,16 @@ const Home: NextPage = () => {
         Welcome to {process.env.NEXT_PUBLIC_CHAIN_NAME} !
       </h1>
 
-      <p className="mt-3 text-2xl">
-        Your wallet address is <code>{walletAddress}</code>
-      </p>
+      <div className="mt-3 text-2xl">
+        Your wallet address is:{' '}
+        <pre className="font-mono break-all whitespace-pre-wrap">
+          {walletAddress}
+        </pre>
+      </div>
 
-      <div className="flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
+      <div className="flex flex-wrap items-center justify-around max-w-4xl mt-6 max-w-full sm:w-full">
         <Link href="/send">
-          <button className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600">
+          <button className="p-6 mt-6 text-left border hover:border-gray-500 w-96 rounded-xl hover:text-primary focus:text-primary-focus">
             <h3 className="text-2xl font-bold">Send to wallet &rarr;</h3>
             <p className="mt-4 text-xl">
               Execute a trasaction to send funds to a wallet address.
