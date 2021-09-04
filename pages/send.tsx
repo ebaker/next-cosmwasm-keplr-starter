@@ -108,12 +108,12 @@ const Send: NextPage = () => {
             onChange={(event) => setSendAmount(event.target.value)}
             value={sendAmount}
           />
-          <span className="absolute top-0 right-0 bottom-0 px-4 py-5 rounded-r-full border border-r-0 border-black bg-secondary text-white text-sm">
+          <span className="absolute top-0 right-0 bottom-0 px-4 py-5 rounded-r-full bg-secondary text-base-100 text-sm">
             {convertFromMicroDenom(PUBLIC_STAKING_DENOM)}
           </span>
         </div>
         <button
-          className="mt-4 md:mt-0 btn btn-primary btn-lg font-semibold hover:text-white text-2xl rounded-full flex-grow"
+          className="mt-4 md:mt-0 btn btn-primary btn-lg font-semibold hover:text-base-100 text-2xl rounded-full flex-grow"
           onClick={handleSend}
         >
           SEND
