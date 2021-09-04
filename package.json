@@ -12,7 +12,7 @@
   "dependencies": {
     "@cosmjs/cosmwasm-stargate": "^0.26.0",
     "daisyui": "^1.14.0",
-    "next": "11.1.0",
+    "next": "11.1.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "theme-change": "^2.0.2"
