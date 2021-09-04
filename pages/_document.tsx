@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
+import { defaultTheme } from 'components/ThemeToggle'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: any) {
@@ -8,7 +9,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html data-theme="juno">
+      <Html data-theme={defaultTheme}>
         <Head />
         <body>
           <Main />
