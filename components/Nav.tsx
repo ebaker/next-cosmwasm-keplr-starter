@@ -1,6 +1,7 @@
 import { useSigningClient } from 'contexts/cosmwasm'
 import Link from 'next/link'
 import Image from 'next/image'
+import ThemeToggle from 'components/ThemeToggle'
 
 function Nav() {
   const { walletAddress, connectWallet, disconnect } = useSigningClient()
@@ -15,9 +16,9 @@ function Nav() {
   const PUBLIC_SITE_ICON_URL = process.env.NEXT_PUBLIC_SITE_ICON_URL || ''
 
   return (
-    <div className="border-b-2 w-screen px-2 md:px-16">
-      <nav className="block text-center md:text-left md:flex flex-row w-full justify-between items-center py-4 ">
-        <div>
+    <div className="border-b w-screen px-2 md:px-16">
+      <nav className="flex flex-wrap text-center md:text-left md:flex flex-row w-full justify-between items-center py-4 ">
+        <div className="flex items-center">
           <Link href="/">
             <a>
               {PUBLIC_SITE_ICON_URL.length > 0 ? (
@@ -28,17 +29,20 @@ function Nav() {
             </a>
           </Link>
           <Link href="/">
-            <a className="ml-2 link link-hover font-semibold text-2xl align-top">
+            <a className="ml-1 md:ml-2 link link-hover font-semibold text-xl md:text-2xl align-top">
               {process.env.NEXT_PUBLIC_SITE_TITLE}
             </a>
           </Link>
         </div>
-        <button
-          className="btn btn-outline btn-primary max-w-full truncate"
-          onClick={handleConnect}
-        >
-          {walletAddress || 'Connect Wallet'}
-        </button>
+        <ThemeToggle />
+        <div className="flex flex-grow lg:flex-grow-0 max-w-full">
+          <button
+            className="block btn btn-outline btn-primary w-full max-w-full truncate"
+            onClick={handleConnect}
+          >
+            {walletAddress || 'Connect Wallet'}
+          </button>
+        </div>
       </nav>
     </div>
   )
