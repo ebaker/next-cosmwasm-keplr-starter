@@ -52,7 +52,7 @@ function WalletLoader({
             <h3 className="text-2xl font-bold">Connect your wallet &rarr;</h3>
             <p className="mt-4 text-xl">
               Get your Keplr wallet connected now and start using it with
-              Cosmos.js.
+              CosmJS.
             </p>
           </button>
         </div>

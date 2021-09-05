@@ -19,9 +19,9 @@ export default function Layout({ children }: { children: ReactNode }) {
         Powered by{' '}
         <a
           className="pl-1 link link-primary link-hover"
-          href="https://github.com/cosmostation/cosmosjs"
+          href="https://github.com/cosmos/cosmjs"
         >
-          CosmosJS
+          CosmJS
         </a>
         <span className="pl-1"> and</span>
         <a

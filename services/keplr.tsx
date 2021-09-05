@@ -1,6 +1,6 @@
 import { convertFromMicroDenom } from 'util/conversion'
 
-// extend window with CosmosJS and Keplr properties
+// extend window with CosmJS and Keplr properties
 interface CosmosKeplrWindow extends Window {
   keplr: any
   getOfflineSigner: Function
