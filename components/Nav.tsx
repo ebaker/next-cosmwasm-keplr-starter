@@ -22,7 +22,12 @@ function Nav() {
           <Link href="/">
             <a>
               {PUBLIC_SITE_ICON_URL.length > 0 ? (
-                <Image src={PUBLIC_SITE_ICON_URL} height={32} width={32} />
+                <Image
+                  src={PUBLIC_SITE_ICON_URL}
+                  height={32}
+                  width={32}
+                  alt="Logo"
+                />
               ) : (
                 <span className="text-2xl">⚛️ </span>
               )}
