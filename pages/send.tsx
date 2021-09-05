@@ -55,13 +55,9 @@ const Send: NextPage = () => {
         denom: PUBLIC_STAKING_DENOM,
       },
     ]
-    const fee: StdFee = {
-      amount,
-      gas: '100000',
-    }
 
     signingClient
-      ?.sendTokens(walletAddress, recipientAddress, amount, fee)
+      ?.sendTokens(walletAddress, recipientAddress, amount)
       .then((resp) => {
         console.log('resp', resp)
 
