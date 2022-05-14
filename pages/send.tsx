@@ -57,7 +57,7 @@ const Send: NextPage = () => {
     ]
 
     signingClient
-      ?.sendTokens(walletAddress, recipientAddress, amount)
+      ?.sendTokens(walletAddress, recipientAddress, amount, 'auto')
       .then((resp) => {
         console.log('resp', resp)
 

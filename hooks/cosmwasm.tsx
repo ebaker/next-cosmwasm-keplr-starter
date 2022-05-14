@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { connectKeplr } from 'services/keplr'
+import { GasPrice } from '@cosmjs/stargate'
 import { SigningCosmWasmClient } from '@cosmjs/cosmwasm-stargate'
 
 export interface ISigningCosmWasmClientContext {
@@ -13,6 +14,7 @@ export interface ISigningCosmWasmClientContext {
 
 const PUBLIC_RPC_ENDPOINT = process.env.NEXT_PUBLIC_CHAIN_RPC_ENDPOINT || ''
 const PUBLIC_CHAIN_ID = process.env.NEXT_PUBLIC_CHAIN_ID
+const GAS_PRICE = process.env.NEXT_PUBLIC_GAS_PRICE as string
 
 export const useSigningCosmWasmClient = (): ISigningCosmWasmClientContext => {
   const [walletAddress, setWalletAddress] = useState('')
@@ -38,7 +40,10 @@ export const useSigningCosmWasmClient = (): ISigningCosmWasmClientContext => {
       // make client
       const client = await SigningCosmWasmClient.connectWithSigner(
         PUBLIC_RPC_ENDPOINT,
-        offlineSigner
+        offlineSigner,
+        {
+          gasPrice: GasPrice.fromString(GAS_PRICE),
+        }
       )
       setSigningClient(client)
 
