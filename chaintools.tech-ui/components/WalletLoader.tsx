@@ -58,6 +58,7 @@ function WalletLoader({
     )
   }
 
+
   if (error) {
     return <code>{JSON.stringify(error)}</code>
   }
