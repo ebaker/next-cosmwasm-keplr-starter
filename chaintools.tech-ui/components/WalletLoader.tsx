@@ -32,7 +32,7 @@ function WalletLoader({
 
         </h1>
 
-        <p className="mt-3 text-2xl">
+        {/* <p className="mt-3 text-2xl">
           Get started by installing{' '}
           <a
             className="pl-1 link link-primary link-hover"
@@ -40,20 +40,45 @@ function WalletLoader({
           >
             Keplr wallet
           </a>
-        </p>
+        </p> */}
 
         <div className="flex flex-wrap items-center justify-around md:max-w-4xl mt-6 sm:w-full">
           <button
             className="p-6 mt-6 text-left border border-secondary hover:border-primary w-96 rounded-xl hover:text-primary focus:text-primary-focus"
             onClick={connectWallet}
           >
-            <h3 className="text-2xl font-bold">Connect your wallet &rarr;</h3>
+            <h3 className="text-2xl font-bold">Stake to our Validators &rarr;</h3>
             <p className="mt-4 text-xl">
-              Get your Keplr wallet connected now and start using it with
-              CosmJS.
+              Connect your wallet to stake to Cosmos chains
             </p>
           </button>
         </div>
+
+        <div className="flex flex-wrap items-center justify-around md:max-w-4xl mt-6 sm:w-full">
+          <button
+            className="p-6 mt-6 text-left border border-secondary hover:border-primary w-96 rounded-xl hover:text-primary focus:text-primary-focus"
+            //onClick={connectWallet}
+          >
+            <h3 className="text-2xl font-bold">Services &rarr;</h3>
+            <p className="mt-4 text-xl">
+              Releyers, statesync, snapshots, live peer updates
+            </p>
+          </button>
+        </div>
+
+        <div className="flex flex-wrap items-center justify-around md:max-w-4xl mt-6 sm:w-full">
+          <button
+            className="p-6 mt-6 text-left border border-secondary hover:border-primary w-96 rounded-xl hover:text-primary focus:text-primary-focus"
+            //onClick={connectWallet}
+          >
+            <h3 className="text-2xl font-bold"> Education &rarr;</h3>
+            <p className="mt-4 text-xl">
+              Get to know how to validate, whats involved with infrastructure
+            </p>
+          </button>
+        </div>
+
+
       </div>
     )
   }

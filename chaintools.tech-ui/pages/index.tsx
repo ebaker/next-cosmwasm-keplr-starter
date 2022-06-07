@@ -1,3 +1,4 @@
+
 import type { NextPage } from 'next'
 import Link from 'next/link'
 import WalletLoader from 'components/WalletLoader'
