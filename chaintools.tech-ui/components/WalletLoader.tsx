@@ -61,7 +61,7 @@ function WalletLoader({
           >
             <h3 className="text-2xl font-bold">Services &rarr;</h3>
             <p className="mt-4 text-xl">
-              Releyers, statesync, snapshots, live peer updates
+              Relayers, statesync, snapshots, live peer updates
             </p>
           </button>
         </div>
