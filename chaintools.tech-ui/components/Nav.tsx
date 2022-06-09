@@ -21,8 +21,8 @@ function Nav() {
         <div className="flex items-center">
 
 
-        (code here for logo)
-          {/* <Link href="/">
+
+          <Link href="/">
             <a>
               {PUBLIC_SITE_ICON_URL.length > 0 ? (
                 <Image
@@ -35,7 +35,7 @@ function Nav() {
                 <span className="text-2xl">⚛️ </span>
               )}
             </a>
-          </Link> */}
+          </Link>
           <Link href="/">
             <a className="ml-1 md:ml-2 link link-hover font-semibold text-xl md:text-2xl align-top">
               {process.env.NEXT_PUBLIC_SITE_TITLE}
