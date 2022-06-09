@@ -1,10 +1,8 @@
 import type { NextPage } from 'next'
 import Link from 'next/link'
 import WalletLoader from 'components/WalletLoader'
-import { useSigningClient } from 'contexts/cosmwasm'
 
 const Home: NextPage = () => {
-  const { walletAddress } = useSigningClient()
 
   return (
     <WalletLoader>
